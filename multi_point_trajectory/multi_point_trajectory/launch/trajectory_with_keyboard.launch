@@ -1,0 +1,28 @@
+<launch>
+
+    <!-- 启动 C++ 编写的轨迹可视化节点 -->
+    <node name="multi_node" 
+          pkg="multi_point_trajectory" 
+          type="multi_node" 
+          output="screen">
+    </node>
+
+    <!-- 启动 Python 编写的键盘监听器 -->
+    <node name="key_publisher" 
+          pkg="multi_point_trajectory" 
+          type="key_publisher.py" 
+          required="true"
+          output="screen">
+    </node>
+
+    <!-- 启动 RViz 并加载指定的配置文件 -->
+    <node name="rviz" 
+          pkg="rviz" 
+          type="rviz" 
+          output="screen"
+          args="-d $(find multi_point_trajectory)/rviz/config.rviz" 
+          required="true">
+          
+    </node>
+
+</launch>
