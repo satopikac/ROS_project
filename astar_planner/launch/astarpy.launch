@@ -1,0 +1,10 @@
+<launch>
+  <!-- 加载地图 -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find astar_planner)/maps/map1.yaml"/>
+
+  <!-- 启动 A* 路径规划器 -->
+  <node name="astar_planner" pkg="astar_planner" type="astar_node.py" output="screen"/>
+
+  <!-- 启动 RVIZ -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find astar_planner)/config/rviz.rviz"/>
+</launch>
