@@ -4,7 +4,7 @@
 ）
 启动各自的键盘控制节点
 
-
+提前安装explore-lite multirobot-map-merge
 map_merge参数细节见 https://wiki.ros.org/multirobot_map_merge#Merging_modes
 `
 roslaunch turtlebot3_gazebo multi_turtlebot3.launch
@@ -17,3 +17,4 @@ ROS_NAMESPACE=tb3_1 rosrun turtlebot3_teleop turtlebot3_teleop_key
 ROS_NAMESPACE=tb3_2 rosrun turtlebot3_teleop turtlebot3_teleop_key
 `
 
+配置.md有关explore-lite的使用
