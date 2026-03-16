@@ -18,3 +18,7 @@ ROS_NAMESPACE=tb3_2 rosrun turtlebot3_teleop turtlebot3_teleop_key
 `
 
 配置.md有关explore-lite的使用
+multi-explore 增加了多机器人各自进行自主探索
+可以在合并建图之后启动，避免键盘控制。
+`roslaunch pkg multi-explore.launch`
+使用前配置好explore-lite包。
