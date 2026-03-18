@@ -1,8 +1,10 @@
 1. 核心数学模型
 A. 代价矩阵与最优匹配 (KM算法)
-系统通过构建代价矩阵 $C$，其中 $C_{i,j}$ 表示第 $i$ 台机器人到第 $j$ 个待执行任务的欧几里得距离：$C_{i,j} = \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2}$KM 算法的目标是寻找一个映射 $f: \text{Robot} \to \text{Task}$，使得总代价最小：$\min \sum_{i} C_{i, f(i)}$
+系统通过构建代价矩阵 $C$，其中 $C_{i,j}$ 表示第 $i$ 台机器人到第 $j$ 个待执行任务的欧几里得距离：
+$$C_{i,j} = \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2}$$KM 算法的目标是寻找一个映射 $$f: \text{Robot} \to \text{Task}$$，使得总代价最小：$$\min \sum_{i} C_{i, f(i)}$$
 B. 任务预热优化 (Pre-heating)为了减少等待间隙，系统引入了预热系数 $\alpha \in [0, 1]$。当任务 $T_{pre}$ 的剩余距离 $d_{rem} < \text{threshold}$ 或进度超过 $\alpha$ 时，释放后续任务 $T_{next}$ 的锁定，使其进入 KM 分配池。
-C. 异常指数退避 (Exponential Backoff)若任务失败次数为 $n$，则该任务重回就绪态前的冻结时间 $T_{wait}$ 为：$T_{wait} = \text{base\_interval} \times 2^{n-1}$
+C. 异常指数退避 (Exponential Backoff)若任务失败次数为 $n$，则该任务重回就绪态前的冻结时间 $T_{wait}$ 为：
+$T_{wait} = \text{base\_interval} \times 2^{n-1}$
 
 安装`scipy`库
 准备tasks.json文件，
